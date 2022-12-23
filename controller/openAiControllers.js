@@ -16,8 +16,9 @@ const generateImage = async (req, res) => {
         })
 
         const imageUrl = response.data.data[0].url;
-
+        
         res.status(200).json({
+            prompt,
             success: true,
             data: imageUrl,
             message: "Generate Image Successful"
@@ -30,11 +31,11 @@ const generateImage = async (req, res) => {
         } else {
             console.log(error.message);
         }
-
         res.status(400).json({
             success: false,
             error: 'Generate Image Failed'
         })
+
     }
 }
 
